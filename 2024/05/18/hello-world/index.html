@@ -364,15 +364,16 @@
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     
-      <script>
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://blog.meta-lives.top/2024/05/18/hello-world/';
+          this.page.identifier = '/2024/05/18/hello-world/';
+        };
         Fluid.utils.loadComments('#disqus_thread', function() {
-          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
-          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
-            new DisqusJS({
-              shortname: 'http-blog-meta-lives-top',
-              apikey: 'IN8Fi6EgZWmAREr9waHiFv4zIGOrYwKBgQNgjE46tVvfsIiai7JmCtteMlEDNFt5'
-            });
-          });
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'http-blog-meta-lives-top' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
         });
       </script>
     
