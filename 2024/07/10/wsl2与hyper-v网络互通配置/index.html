@@ -16,21 +16,26 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="hyper-v新建vswitch 使用多网卡配置，一张内网网卡，一张外网网卡，网卡均由hyper-v虚拟；内网网卡为静态ip，外网网卡为dhcp分配。   wsl配置12345# C:\Users\[User]\.wslconfig[experimental]networkingMode&#x3D;mirroreddnsTunneling&#x3D;truefirewall&#x3D;true 运行wsl --shutdown">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://blog.meta-lives.top/2024/05/18/hello-world/index.html">
+<meta property="og:title" content="wsl2与hyper-v网络互通配置">
+<meta property="og:url" content="http://blog.meta-lives.top/2024/07/10/wsl2%E4%B8%8Ehyper-v%E7%BD%91%E7%BB%9C%E4%BA%92%E9%80%9A%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="hyper-v新建vswitch 使用多网卡配置，一张内网网卡，一张外网网卡，网卡均由hyper-v虚拟；内网网卡为静态ip，外网网卡为dhcp分配。   wsl配置12345# C:\Users\[User]\.wslconfig[experimental]networkingMode&#x3D;mirroreddnsTunneling&#x3D;truefirewall&#x3D;true 运行wsl --shutdown">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-05-18T04:54:31.827Z">
-<meta property="article:modified_time" content="2024-05-18T04:54:31.827Z">
+<meta property="og:image" content="http://image-host.meta-lives.top/blog/202407100230824_%E8%99%9A%E6%8B%9F%E4%BA%A4%E6%8D%A2%E6%9C%BA.png">
+<meta property="og:image" content="http://image-host.meta-lives.top/blog/202407100231216_%E7%BD%91%E5%8D%A1ip.png">
+<meta property="og:image" content="http://image-host.meta-lives.top/blog/202407100234138_win10%E7%BD%91%E7%BB%9C.png">
+<meta property="article:published_time" content="2024-07-10T15:23:50.000Z">
+<meta property="article:modified_time" content="2024-07-10T15:25:21.987Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="wsl, hyper-v">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://image-host.meta-lives.top/blog/202407100230824_%E8%99%9A%E6%8B%9F%E4%BA%A4%E6%8D%A2%E6%9C%BA.png">
   
   
   
-  <title>Hello World - Hexo</title>
+  <title>wsl2与hyper-v网络互通配置 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="wsl2与hyper-v网络互通配置"></span>
           
         </div>
 
@@ -207,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-18 12:54" pubdate>
-          2024年5月18日 下午
+        <time datetime="2024-07-10 23:23" pubdate>
+          2024年7月10日 晚上
         </time>
       </span>
     
@@ -219,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18 字
+          149 字
         
       </span>
     
@@ -230,7 +235,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -267,24 +272,24 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">wsl2与hyper-v网络互通配置</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h1 id="hyper-v新建vswitch"><a href="#hyper-v新建vswitch" class="headerlink" title="hyper-v新建vswitch"></a>hyper-v新建vswitch</h1><blockquote>
+<p>使用多网卡配置，一张内网网卡，一张外网网卡，网卡均由hyper-v虚拟；内网网卡为静态ip，外网网卡为dhcp分配。</p>
+</blockquote>
+<p><img src="http://image-host.meta-lives.top/blog/202407100230824_%E8%99%9A%E6%8B%9F%E4%BA%A4%E6%8D%A2%E6%9C%BA.png" srcset="/img/loading.gif" lazyload alt="hyper-v新建vswitch"><br><img src="http://image-host.meta-lives.top/blog/202407100231216_%E7%BD%91%E5%8D%A1ip.png" srcset="/img/loading.gif" lazyload alt="虚拟网卡ip配置"></p>
+<h1 id="wsl配置"><a href="#wsl配置" class="headerlink" title="wsl配置"></a>wsl配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># C:\Users\[User]\.wslconfig</span><br>[experimental]<br>networkingMode=mirrored<br>dnsTunneling=<span class="hljs-literal">true</span><br>firewall=<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<p>运行<code>wsl --shutdown</code>后再重启wsl虚拟机，配置生效</p>
+<h1 id="hyper-v虚拟机配置"><a href="#hyper-v虚拟机配置" class="headerlink" title="hyper-v虚拟机配置"></a>hyper-v虚拟机配置</h1><blockquote>
+<p>此处省略虚拟机安装过程，虚拟机采用的地debian12.5</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># /etc/network/interfaces.d/eth1-static</span><br>allow-hotplug eth1<br>auto eth1<br>iface eth1 inet static<br>        address 192.168.10.3<br>        netmask 255.255.255.0<br>        gateway 192.168.10.1<br>        metric 1000<br></code></pre></td></tr></table></figure>
+<p>运行<code>systemctl restart networking</code>重启网络服务，配置生效</p>
+<h1 id="windows-ping配置"><a href="#windows-ping配置" class="headerlink" title="windows ping配置"></a>windows ping配置</h1><p><img src="http://image-host.meta-lives.top/blog/202407100234138_win10%E7%BD%91%E7%BB%9C.png" srcset="/img/loading.gif" lazyload alt="windows ping配置"></p>
+<p>打开图中两个开关，可实现主机与虚机互ping</p>
 
                 
               </div>
@@ -294,6 +299,13 @@
               <div class="post-metas my-3">
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/wsl-hyper-v/" class="print-no-link">#wsl, hyper-v</a>
+      
+    </div>
+  
 </div>
 
 
@@ -302,8 +314,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://blog.meta-lives.top/2024/05/18/hello-world/</div>
+      <div>wsl2与hyper-v网络互通配置</div>
+      <div>http://blog.meta-lives.top/2024/07/10/wsl2与hyper-v网络互通配置/</div>
     </div>
     <div class="license-meta">
       
@@ -315,7 +327,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年5月18日</div>
+          <div>2024年7月10日</div>
         </div>
       
       
@@ -347,15 +359,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/10/wsl2%E4%B8%8Ehyper-v%E7%BD%91%E7%BB%9C%E4%BA%92%E9%80%9A%E9%85%8D%E7%BD%AE/" title="wsl2与hyper-v网络互通配置">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">wsl2与hyper-v网络互通配置</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2024/05/18/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
